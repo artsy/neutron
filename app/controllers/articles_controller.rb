@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   expose(:article)
-  expose(:articles) { Article.order(created_at: :desc).limit(20) }
+  expose(:articles) { Article.where(archived_at: nil).order(created_at: :desc).limit(20) }
 
   def create
     if article.save
@@ -16,6 +16,11 @@ class ArticlesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    article.archive
+    redirect_to articles_path
   end
 
   private

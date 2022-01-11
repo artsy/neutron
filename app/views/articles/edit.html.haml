@@ -3,3 +3,4 @@
 = form_with model: article do |f|
   = f.text_field :title, autofocus: true
   = f.button "update"
+  = f.button "archive", formmethod: :delete, data: { confirm: "Are you sure?" }

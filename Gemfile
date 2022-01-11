@@ -7,6 +7,8 @@ gem "rails", "7.0.1"
 gem "bootsnap", require: false
 gem "decent_exposure"
 gem "graphql"
+gem "graphql-page_cursors"
+gem "graphql-rails_logger"
 gem "haml"
 gem "importmap-rails"
 gem "jbuilder"

@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   expose(:article)
-  expose(:articles) { Article.all }
+  expose(:articles) { Article.order(created_at: :desc).limit(20) }
 
   def create
     if article.save

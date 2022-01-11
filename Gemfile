@@ -6,6 +6,7 @@ gem "rails", "7.0.1"
 
 gem "bootsnap", require: false
 gem "decent_exposure"
+gem "graphql"
 gem "haml"
 gem "importmap-rails"
 gem "jbuilder"
@@ -17,6 +18,7 @@ gem "stimulus-rails"
 gem "turbo-rails"
 
 group :development do
+  gem "graphiql-rails"
   gem "web-console"
 end
 

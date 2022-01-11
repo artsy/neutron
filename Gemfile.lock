@@ -105,6 +105,13 @@ GEM
       railties
       sprockets-rails
     graphql (1.13.4)
+    graphql-page_cursors (0.0.2)
+      graphql
+    graphql-rails_logger (1.2.3)
+      actionpack (> 5.0)
+      activesupport (> 5.0)
+      railties (> 5.0)
+      rouge (~> 3.0)
     haml (5.2.2)
       temple (>= 0.8.0)
       tilt
@@ -190,6 +197,7 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
+    rouge (3.27.0)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -262,6 +270,8 @@ DEPENDENCIES
   factory_bot_rails
   graphiql-rails
   graphql
+  graphql-page_cursors
+  graphql-rails_logger
   haml
   importmap-rails
   jbuilder

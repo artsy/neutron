@@ -58,6 +58,38 @@ ALTER SEQUENCE public.articles_id_seq OWNED BY public.articles.id;
 
 
 --
+-- Name: legacy_articles; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.legacy_articles (
+    id bigint NOT NULL,
+    data jsonb,
+    positron_id character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: legacy_articles_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.legacy_articles_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: legacy_articles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.legacy_articles_id_seq OWNED BY public.legacy_articles.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -71,6 +103,13 @@ CREATE TABLE public.schema_migrations (
 --
 
 ALTER TABLE ONLY public.articles ALTER COLUMN id SET DEFAULT nextval('public.articles_id_seq'::regclass);
+
+
+--
+-- Name: legacy_articles id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.legacy_articles ALTER COLUMN id SET DEFAULT nextval('public.legacy_articles_id_seq'::regclass);
 
 
 --
@@ -90,6 +129,14 @@ ALTER TABLE ONLY public.articles
 
 
 --
+-- Name: legacy_articles legacy_articles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.legacy_articles
+    ADD CONSTRAINT legacy_articles_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -105,6 +152,7 @@ SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
 ('20220111155643'),
-('20220111202235');
+('20220111202235'),
+('20220111213914');
 
 

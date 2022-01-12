@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "/palette", to: "palette#index"
+
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/api/graphql"
   end

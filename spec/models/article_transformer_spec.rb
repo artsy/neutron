@@ -27,5 +27,23 @@ describe ArticleTransformer do
       expect(article.title).to eq legacy_article.data["title"]
       expect(article.updated_at.iso8601).to eq legacy_article.data["updated_at"]["$date"]
     end
+
+    it "sets the current slug and all past slugs" do
+      data = {
+        "published_at" => { "$date" => "2012-08-21T19:27:23Z" },
+        "slug" => "best-article-by-jon-allured",
+        "slugs" => ["best-article", "best-article-by-jon-allured"],
+        "title" => "Best article",
+        "updated_at" => { "$date" => "2012-12-11T15:14:35Z" },
+      }
+
+      legacy_article = FactoryBot.create :legacy_article, data: data
+      ArticleTransformer.run(legacy_article.id)
+
+      article = legacy_article.article
+
+      expect(article.slug).to eq legacy_article.data["slug"]
+      expect(Article.find("best-article")).to eq article
+    end
   end
 end

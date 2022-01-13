@@ -36,7 +36,8 @@ CREATE TABLE public.articles (
     updated_at timestamp(6) without time zone NOT NULL,
     archived_at timestamp(6) without time zone,
     legacy_article_id bigint,
-    published_at timestamp(6) without time zone
+    published_at timestamp(6) without time zone,
+    slug character varying
 );
 
 
@@ -242,6 +243,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20220111202235'),
 ('20220111213914'),
 ('20220112153446'),
-('20220113150807');
+('20220113150807'),
+('20220113150942');
 
 

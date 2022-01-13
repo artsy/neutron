@@ -24,12 +24,19 @@ class ArticleTransformer
 
   def article_attrs
     {
-      created_at: article_data["updated_at"]["$date"],
+      created_at: updated_at,
       legacy_article_id: legacy_article.id,
-      published_at: article_data["published_at"]["$date"],
+      published_at: article_data.dig("published_at", "$date"),
       title: article_data["title"],
-      updated_at: article_data["updated_at"]["$date"],
+      updated_at: updated_at,
     }
   end
-end
 
+  def updated_at
+    timestamp = article_data["updated_at"]
+
+    return timestamp if timestamp.nil? || timestamp.is_a?(String)
+
+    timestamp["$date"]
+  end
+end

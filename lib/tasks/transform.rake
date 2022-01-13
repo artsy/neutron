@@ -5,5 +5,8 @@ task transform: :environment do
   article_ids_to_transform.each do |legacy_article_id|
     ArticleTransformer.run(legacy_article_id)
     print "."
+  rescue => e
+    puts e
+    puts legacy_article_id
   end
 end

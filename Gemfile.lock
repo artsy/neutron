@@ -103,6 +103,8 @@ GEM
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.1)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     graphiql-rails (1.8.0)
@@ -274,6 +276,7 @@ DEPENDENCIES
   decent_exposure
   factory_bot_rails
   faraday
+  friendly_id
   graphiql-rails
   graphql
   graphql-page_cursors

@@ -34,7 +34,9 @@ CREATE TABLE public.articles (
     title character varying,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL,
-    archived_at timestamp(6) without time zone
+    archived_at timestamp(6) without time zone,
+    legacy_article_id bigint,
+    published_at timestamp(6) without time zone
 );
 
 
@@ -66,7 +68,9 @@ CREATE TABLE public.legacy_articles (
     data jsonb,
     positron_id character varying,
     created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    updated_at timestamp(6) without time zone NOT NULL,
+    article_id bigint,
+    transformed_at timestamp(6) without time zone
 );
 
 
@@ -145,6 +149,20 @@ ALTER TABLE ONLY public.schema_migrations
 
 
 --
+-- Name: index_articles_on_legacy_article_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_articles_on_legacy_article_id ON public.articles USING btree (legacy_article_id);
+
+
+--
+-- Name: index_legacy_articles_on_article_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_legacy_articles_on_article_id ON public.legacy_articles USING btree (article_id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -153,6 +171,7 @@ SET search_path TO "$user", public;
 INSERT INTO "schema_migrations" (version) VALUES
 ('20220111155643'),
 ('20220111202235'),
-('20220111213914');
+('20220111213914'),
+('20220112153446');
 
 

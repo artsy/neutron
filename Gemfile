@@ -7,6 +7,7 @@ gem "rails", "7.0.1"
 gem "bootsnap", require: false
 gem "decent_exposure"
 gem "faraday"
+gem "friendly_id"
 gem "graphql"
 gem "graphql-page_cursors"
 gem "graphql-rails_logger"

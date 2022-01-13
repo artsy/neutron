@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.palette-text-xxl {
+  @apply text-xxl leading-xxl tracking-xxl
+}
+
+.palette-text-xl {
+  @apply text-xl leading-xl tracking-xl
+}
+
+.palette-text-lg {
+  @apply text-lg leading-lg tracking-lg
+}
+
+.palette-text-md {
+  @apply text-md leading-md tracking-md
+}
+
+.palette-text-sm {
+  @apply text-sm leading-sm tracking-sm
+}
+
+.palette-text-xs {
+  @apply text-xs leading-xs tracking-xs
+}
+
+.palette-button-primaryBlack {
+  @apply text-white100 text-md leading-md tracking-md bg-black100 px-4 h-[50px] rounded-[25px] hover:bg-blue100 hover:underline disabled:bg-black30 disabled:no-underline
+}

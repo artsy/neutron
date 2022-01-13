@@ -5,6 +5,7 @@ ruby "3.1.0"
 gem "rails", "7.0.1"
 
 gem "bootsnap", require: false
+gem "cssbundling-rails"
 gem "decent_exposure"
 gem "faraday"
 gem "friendly_id"
@@ -20,6 +21,7 @@ gem "redis"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
+gem "view_component"
 
 group :development do
   gem "graphiql-rails"

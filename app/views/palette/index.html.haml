@@ -1,0 +1,29 @@
+= render TextComponent.new variant: "xxl" do
+  Text XXL
+
+= render TextComponent.new variant: "xl" do
+  Text XL
+
+= render TextComponent.new variant: "lg" do
+  Text LG
+
+= render TextComponent.new variant: "md" do
+  Text MD
+
+= render TextComponent.new variant: "sm" do
+  Text SM
+
+= render TextComponent.new variant: "xs" do
+  Text XS
+
+= r "Text", variant: "xxl" do
+  Using a helper
+
+= p.Text variant: "xxl" do
+  Using a fancy helper
+
+= p.Button variant: "primaryBlack" do
+  Follow
+
+= p.Button variant: "primaryBlack", disabled: true do
+  Disabled Action
